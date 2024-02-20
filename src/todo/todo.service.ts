@@ -7,10 +7,12 @@ import { PrismaService } from 'src/prisma/prisma.service';
 export class TodoService {
   constructor(private readonly prismaService: PrismaService) {}
 
-  async create(createTodoDto: CreateTodoDto) {
-    return await this.prismaService.todo.create({
-      data: createTodoDto,
-    });
+  async create(data: CreateTodoDto) {
+    console.log(
+      '🚀 ~ file: todo.service.ts:11 ~ TodoService ~ create ~ createTodoDto:',
+      data,
+    );
+    return await this.prismaService.todo.create({ data });
   }
 
   findAll() {
